@@ -1,4 +1,4 @@
-# MIL INDUSTRIES & AEROSPACE LIMITED (ERP Implementation – Odoo 18.0)
+# MIL INDUSTRIES & AEROSPACE LIMITED (Odoo 18.0)
 
 ## **Overview**
 

@@ -1,0 +1,341 @@
+<html>
+    <head>
+        <title>Accounting</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <div class="page">
+            <div class="menus">
+                <ul class="no-style">
+                    <li><a href="#user-groups">User Groups</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <ul class="no-style">
+                        <li><a href="#vendors">Vendors</a></li>
+                        <li><a href="#customers">Customers</a></li>
+                        <li><a href="#bank-accounts">Bank Accounts</a></li>
+                        <li><a href="#product-category">Product Category</a></li>
+                        <li><a href="#documents">Documents</a></li>
+                        <li><a href="#accounting">Accounting</a></li>
+                        <ul class="no-style">
+                            <li><a href="#accounting-configuration">Configuration</a></li>
+                            <li><a href="#invoices">Invoices</a></li>
+                            <li><a href="#debit-notes">Debit Notes</a></li>
+                            <li><a href="#credit-notes">Credit Notes</a></li>
+                            <li><a href="#einvoice">e-Invoice</a></li>
+                            <li><a href="#eway-bill">E-Way Bill</a></li>
+                            <li><a href="#advance-payment">Advance Payment</a></li>
+                            <li><a href="#check-printing">Check Printing</a></li>
+                            <li><a href="#journal-entries">Journal Entries</a></li>
+                            <li><a href="#journals">Journals</a></li>
+                            <li><a href="#coa">Chart of Accounts</a></li>
+                            <li><a href="#multi-currencies">Multi-Currencies</a></li>
+                            <li><a href="#tds">TDS</a></li>
+                            <li><a href="#reports">Reports</a></li>
+                        </ul>
+                        <li><a href="#expenses">Expenses</a></li>
+                        <li><a href="#petty-cash">Petty Cash</a></li>
+                    </ul>
+                    <hr class="partition-menu"/>
+                    <li><a href="/milia">Back to Home</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h1>Odoo Accounting</h1>
+
+                <h2 id="user-groups">User Groups</h2>
+                <p>Accounting team hierarchy from botton to top is as follows:</p>
+                <ul>
+                    <li>Accounting: Invoicing</li>
+                    <li>Accounting: Read-only</li>
+                    <li>Accounting: Invoicing &amp; Banks</li>
+                    <li>Accounting: Bookkeeper</li>
+                    <li>Accounting: Administrator</li>
+                </ul>
+                <ul>
+                    <li>Bank: Validate bank account</li>
+                </ul>
+                <p>Other groups involved:</p>
+                <ul>
+                    <li>Administration: Settings</li>
+                    <li>Documents: User</li>
+                    <li>Technical: Stock Accounting Automatic</li>
+                    <li>User types: Internal User</li>
+                    <li>Expense Groups (hierarchy from bottom to top as follows):</li>
+                    <ul>
+                        <li>Expenses: Team Approver</li>
+                        <li>Expenses: All Approver</li>
+                        <li>Expenses: Administrator</li>
+                    </ul>
+                </ul>
+                <p>Invoicing user should be in documents user group to access MSME certificates, and technical group for stock accounting to access advance stock accounting configurations on product category.</p>
+                <p>Users in accounting groups interacts with vendor records.</p>
+                <img src="accounting/usecase/invoicing_user_vendor_interaction.png" class="center"/>
+                <p>Users in accounting groups interacts with customer records.</p>
+                <img src="accounting/usecase/invoicing_user_customer_interaction.png" class="center"/>
+                <p>Invoicing user can access invoices under <i>Accounting >> Customers >> Invoices</i>.</p>
+                <img src="accounting/usecase/invoicing_user_invoices_interaction.png" class="center"/>
+                <p>Accounting users can access check printing feature.</p>
+                <img src="accounting/usecase/accounting_users_check_interaction.png" class="center"/>
+                <p>Accounting administrator manages journals.</p>
+                <img src="accounting/usecase/admin_journal_interaction.png" class="center"/>
+                <img src="accounting/usecase/bank_account_validator_bank_accounts_interaction.png" class="center"/>
+                <p>Accounting users can access journal entries.</p>
+                <img src="accounting/usecase/invoicing_readonly_journal_entries_interaction.png" class="center"/>
+                <p>Users in accounting groups interacts with product categories.</p>
+                <img src="accounting/usecase/invoicing_user_product_category_interaction.png" class="center"/>
+                <p>Users in accounting groups interacts with products.</p>
+                <img src="accounting/usecase/user_product_interaction.png" class="center"/>
+                <p>Users in accounting groups accesses Documents.</p>
+                <img src="accounting/usecase/invoicing_user_documents_interaction.png" class="center"/>
+                <p>ERP Administrator does the primary settings in accounting app</p>
+                <img src="accounting/usecase/admin_accounting_config_interaction.png" class="center"/>
+                <p>Invoicing user has access to reports</p>
+                <img src="accounting/usecase/invoicing_user_reports_interaction.png" class="center"/>
+                <p>Every user in ERP has access to expenses app.</p>
+                <img src="accounting/usecase/expenses_interaction.png" class="center"/>
+
+                <h2 id="activities">Activities</h2>
+                <p>The below diagram shows the request for MSME certificate flow.</p>
+                <img src="accounting/activity/invoicing_user_vendor_msme_activity.png" class="center"/>
+
+                <h2 id="applications">Application-wise steps</h2>
+                <h3 id="vendors">Vendors</h3>
+                <p>Set MSME status of vendor</p>
+                <img src="accounting/screenshots/invoicing_user_vendor_interaction_5.png" class="center screenshot"/>
+
+                <h3 id="customers">Customers</h3>
+                <p>Customers are accessible from Contacts application</p>
+                <img src="accounting/screenshots/invoicing_user_vendor_interaction_1.png" class="center screenshot"/>
+                <p>Customer specific credit limits can be set under <i>Accounting</i> page</p>
+                <img src="accounting/screenshots/invoicing_user_customer_interaction_1.png" class="center screenshot"/>
+
+                <h3 id="bank-accounts">Bank Accounts</h3>
+                <p>Accounting Administrator can add new bank account under <i>Accounting >> Configuration >> Banks >> Add a Bank Account</i>. User can select <b>Record transactions manually</b> option if don't want to connect bank with software.</p>
+                <img src="accounting/screenshots/bank_account_interaction_1.png" class="center screenshot"/>
+                <p>ERP auto-creates one bank journal and one account in CoA.</p>
+                <img src="accounting/screenshots/bank_account_interaction_2.png" class="center screenshot"/><br/>
+                <img src="accounting/screenshots/bank_account_interaction_3.png" class="center screenshot"/>
+                <p>Invoicing user can create bank account under <i>Accounting</i> page on vendor records. User allowed to approve bank accounts can also enable <i>sending money</i> for that account.</p>
+                <img src="accounting/screenshots/bank_account_interaction_4.png" class="center screenshot"/>
+                <p>Approval of bank accounts adds additional check for certain payment methods.</p>
+                <img src="accounting/screenshots/bank_account_interaction_5.png" class="center screenshot"/>
+
+                <h3 id="product-category">Product Category</h3>
+                <p>Invoicing user can set valuation to <i>Average Costing (AVCO)</i> or <i>First In First Out (FIFO)</i>, and should set inventory valuation to <i>Automated</i>.</p>
+                <img src="accounting/screenshots/invoicing_user_product_category_interaction_1.png" class="center screenshot"/>
+                <p>Set applicable stock valuation, input, and output accounts of type <i>Current Assets</i>.</p>
+                <img src="accounting/screenshots/invoicing_user_product_category_interaction_2.png" class="center screenshot"/>
+                <p>The basic stock input/output valuation journal entries will look as follows.</p>
+                <img src="accounting/object/stock_in_out_object.png" class="center"/>
+                <p>The valuation journal entries involved in manufacturing 100.00 meters of PTFE tubes will look as follows.</p>
+                <p><i>Below is the list of processes and machinery involved.</i></p>
+                <table>
+                    <tr>
+                        <th>Process</th>
+                        <th>Workcenter</th>
+                        <th>Capacity</th>
+                        <th>Duration (in minutes)</th>
+                        <th>Cost per hour (workcenter)</th>
+                        <th>Cost per hour (employee)</th>
+                    </tr>
+                    <tr>
+                        <td>Mixing</td>
+                        <td>Mixing Area</td>
+                        <td>1000.00</td>
+                        <td>2880:00</td>
+                        <td>40.00</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Extrusion</td>
+                        <td>Extrusion Machine</td>
+                        <td>10.00</td>
+                        <td>60:00</td>
+                        <td>60.00</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Sintering</td>
+                        <td>Oven</td>
+                        <td>50.00</td>
+                        <td>660:00</td>
+                        <td>700.00</td>
+                        <td>0.00</td>
+                    </tr>
+                </table>
+                <p><i>Below is the raw material in production process.</i></p>
+                <img src="accounting/object/raw_material_object.png" class="center"/>
+                <p><i>Below is the total process costs.</i></p>
+                <img src="accounting/object/workcenter_employee_cost_object.png" class="center"/>
+                <p><i>Below is the valuation of the finished product.</i></p>
+                <img src="accounting/object/finished_product_valuation_object.png" class="center"/>
+                <p><i>Below is the detailed valuation which accountants can seen when manufacturing process is in progress.</i></p>
+                <img src="accounting/object/production_overview_object.png" class="center"/>
+                <p>212500 Stock Interim account can be replaced by another account set in <i>Production Account</i> field.</p>
+                <img src="accounting/screenshots/invoicing_readonly_production_account_product_category.png" class="center screenshot"/>
+
+                <h3 id="documents">Documents</h3>
+                <p>Documents app is accessible in main screen</p>
+                <img src="accounting/screenshots/invoicing_user_documents_interaction_1.png" class="center screenshot"/>
+                <p>MSME related documents are accessible under <i>MSME Certificates</i> folder</p>
+                <img src="accounting/screenshots/invoicing_user_documents_interaction_2.png" class="center screenshot"/>
+
+                <h3 id="accounting">Accounting</h3>
+                <p>The accounting app is accessible from main menu</p>
+                <img src="accounting/screenshots/invoicing_user_accounting_menu.png" class="center screenshot"/>
+                
+                <h4 id="accounting-configuration">Accounting configuration</h4>
+                <p>Setup fiscal localization under <i>Accounting >> Configuration >> Settings</i></p>
+                <img src="accounting/screenshots/admin_accounting_config_interaction_1.png" class="center screenshot"/>
+                <p>Setup default taxes under <i>Accounting >> Configuration >> Settings</i></p>
+                <img src="accounting/screenshots/admin_accounting_config_interaction_2.png" class="center screenshot"/>
+                <p>Fiscal positions can be managed under <i>Accounting >> Configuration >> Accounting >> Fiscal Positions</i></p>
+                <img src="accounting/screenshots/admin_accounting_config_interaction_3.png" class="center screenshot"/>
+                <p>Set sales credit limit under <i>Accounting >> Configuration >> Settings</i></p>
+                <img src="accounting/screenshots/admin_accounting_config_interaction_4.png" class="center screenshot"/>
+                <p>Accounting administrator can do all EDI related configurations under <i>Accounting >> Configuration >> Settings</i></p>
+                <img src="accounting/screenshots/admin_accounting_config_interaction_5.png" class="center screenshot"/>
+
+                <h4 id="invoices">Invoices</h4>
+                <p>User gets an indication about customer's credit limit</p>
+                <img src="accounting/screenshots/invoicing_user_invoice_interaction_1.png" class="center screenshot"/>
+                <p>Journal entries</p>
+                <img src="accounting/object/invoice_payment_bank_object.png" class="center screenshot"/>
+
+                <h4 id="debit-notes">Debit Notes</h4>
+                <p>Invoicing user can create debit notes from invoice using <b>Debit Note</b> action.</p>
+                <img src="accounting/screenshots/invoicing_user_debit_notes_interaction_1.png" class="center screenshot"/>
+                <p>Debit notes are accessible from smart button.</p>
+                <img src="accounting/screenshots/invoicing_user_debit_notes_interaction_2.png" class="center screenshot"/>
+                <p>Debit note is linked with the original invoice.</p>
+                <img src="accounting/screenshots/invoicing_user_debit_notes_interaction_3.png" class="center screenshot"/>
+
+                <h4 id="credit-notes">Credit Notes</h4>
+                <p>Invoicing user can create credit note using highlighted header button.</p>
+                <img src="accounting/screenshots/invoicing_user_credit_notes_interaction_1.png" class="center screenshot"/>
+                <p>Invoicing user can access credit notes under <i>Accounting >> Customers >> Credit Notes</i>.</p>
+                <img src="accounting/screenshots/invoicing_user_credit_notes_interaction_2.png" class="center screenshot"/>
+                <p>Confirmed credit notes can be directly reconciled with original invoice marking it as <b>Reversed</b>.</p>
+                <img src="accounting/screenshots/invoicing_user_credit_notes_interaction_3.png" class="center screenshot"/>
+
+                <h4 id="einvoice">e-Invoice</h4>
+                <p>Login to <a href="https://einvoice1.gst.gov.in/" target="_blank">e-Invoice 1 Portal</a></p>
+
+                <h4 id="eway-bill">E-Way Bill</h4>
+
+                <h4 id="advance-payment">Advance Payment</h4>
+                <p>Accounting administrator can configure outstanding payment account on outgoing payments in bank journal.</p>
+                <img src="accounting/screenshots/vendor_payment_interaction_1.png" class="center screenshot"/>
+                <p>Invoicing user can create advance payment under <i>Accounting >> Vendors >> Payments</i>.</p>
+                <img src="accounting/screenshots/vendor_payment_interaction_2.png" class="center screenshot"/>
+                <p>The advance will show as outstanding debits for bills created later which are posted but unpaid.</p>
+                <img src="accounting/screenshots/vendor_payment_interaction_3.png" class="center screenshot"/>
+                <p>Below diagram shows how suspense account is later replaced by outstanding payment account in bank statement line's journal entry.</p>
+                <img src="accounting/object/advance_payment_object.png" class="center screenshot"/>
+
+                <h4 id="check-printing">Check Printing</h4>
+                <p>ERP Administrator sets default check printing format under <i>Accounting >> Configuration >> Settings</i>.</p>
+                <img src="accounting/screenshots/check_printing_interaction_1.png" class="center screenshot"/>
+                <p>Accounting Administrator does check printing related configurations on <b>Bank Type</b> journal.</p>
+                <img src="accounting/screenshots/check_printing_interaction_2.png" class="center screenshot"/>
+                <p>Invoicing User registers payment for a vendor bill selecting payment method as Checks option.</p>
+                <img src="accounting/screenshots/check_printing_interaction_3.png" class="center screenshot"/>
+                <p>Payments are accessible under <i>Accounting >> Vendors >> Payments</i>. Bookkeeper can print check using highlighted header button.</p>
+                <img src="accounting/screenshots/check_printing_interaction_4.png" class="center screenshot"/>
+                <p>Sample PDF format of printed check.</p>
+                <img src="accounting/screenshots/check_printing_interaction_5.png" class="center screenshot"/>
+
+                <h4 id="journal-entries">Journal Entries</h4>
+                <p>Invoicing users has access to journal entries and journal items under <i>Accounting >> Accounting</i>.</p>
+                <img src="accounting/screenshots/invoicing_user_journal_entries_interaction_1.png" class="center screenshot"/>
+
+                <h4 id="journals">Journals</h4>
+                <p>Journals are accessible under <i>Accounting >> Configuration >> Accounting >> Journals</i></p>
+                <img src="accounting/screenshots/admin_journal_interaction_1.png" class="center screenshot"/>
+
+                <h4 id="coa">Chart of Accounts</h4>
+                <p>Accounts are accessible under <i>Accounting >> Configuration >> Accounting >> Chart of Accounts</i></p>
+                <img src="accounting/screenshots/admin_coa_interaction_1.png" class="center screenshot"/>
+
+                <h4 id="multi-currencies">Multi Currencies</h4>
+                <p>Multi-currencies in database gets enabled when accounting administrator enables 1 extra currency under <i>Accounting >> Configuration >> Accounting >> Currencies</i>.</p>
+                <img src="accounting/screenshots/currencies_interaction_1.png" class="center screenshot"/>
+                <p>Accounting administrator can set currency rates manually, or ERP administrator can enable 3rd party services to update exchange rates at specific intervals.</p>
+                <img src="accounting/screenshots/currencies_interaction_2.png" class="center screenshot"/><br/>
+                <img src="accounting/screenshots/currencies_interaction_3.png" class="center screenshot"/>
+                <p>Exchange difference between invoice validation date and payment date will be posted on configured journal and accounts.</p>
+                <img src="accounting/screenshots/currencies_interaction_4.png" class="center screenshot"/>
+
+                <h4 id="tds">TDS</h4>
+                <p>TDS threshold alerts can be enabled by ERP administrator under <i>Accounting >> Configuration >> Settings</i>.</p>
+                <img src="accounting/screenshots/tds_interaction_1.png" class="center screenshot"/>
+                <p>Accounting administrator can configure TDS section under <i>Accounting >> Configuration >> Accounting >> Chart of Accounts</i>.</p>
+                <img src="accounting/screenshots/tds_interaction_2.png" class="center screenshot"/><br/>
+                <img src="accounting/screenshots/tds_interaction_4.png" class="center screenshot"/>
+                <p>Accounting read-only user can set expense account on product under <i>Accounting >> Vendors >> Products</i>.</p>
+                <img src="accounting/screenshots/tds_interaction_3.png" class="center screenshot"/>
+                <p>Invoicing user gets alert on bill.</p>
+                <img src="accounting/screenshots/tds_interaction_5.png" class="center screenshot"/>
+                <p>Invoicing user can manually add TDS using highlighted header button. This will mark bill as partially paid.</p>
+                <img src="accounting/screenshots/tds_interaction_6.png" class="center screenshot"/><br/>
+                <img src="accounting/screenshots/tds_interaction_7.png" class="center screenshot"/><br/>
+                <img src="accounting/screenshots/tds_interaction_8.png" class="center screenshot"/>
+
+                <h4 id="reports">Reports</h4>
+                <p>Reports are accessible under <i>Accounting >> Reporting</i></p>
+                <img src="accounting/screenshots/invoicing_user_reports_interaction_1.png" class="center screenshot"/>
+                <img src="accounting/screenshots/invoicing_user_reports_interaction_2.png" class="center screenshot"/>
+
+                <h3 id="expenses">Expenses</h3>
+                <p>ERP Administrator can configure expense app under <i>Expenses >> Configuration >> Settings</i>. Following configurations can be done:</p>
+                <ul>
+                    <li>Enabling feature to scan receipts</li>
+                    <li>Configuring global outstanding payments account</li>
+                </ul>
+                <img src="accounting/screenshots/expenses_interaction_1.png" class="center screenshot"/>
+                <p>ERP users can access expense app from main dashboard.</p>
+                <img src="accounting/screenshots/expenses_interaction_2.png" class="center screenshot"/>
+                <p>Expenses can be done by employee or directly by company. In case of expense done by employee, a vendor bill will be created.</p>
+                <img src="accounting/screenshots/expenses_interaction_3.png" class="center screenshot"/>
+                <p>After registering expense, user has to create report, and submit to manager for further approval.</p>
+                <img src="accounting/screenshots/expenses_interaction_4.png" class="center screenshot"/>
+                <img src="accounting/screenshots/expenses_interaction_5.png" class="center screenshot"/>
+                <p>User being team expense approver can approve expenses for following employees:</p>
+                <ul>
+                    <li>Employee in which user is configured as an expense manager.</li>
+                    <li>Employee to whom user is manager.</li>
+                    <li>Employee to whose department user is manager.</li>
+                </ul>
+                <img src="accounting/screenshots/expenses_interaction_6.png" class="center screenshot"/>
+                <p>Invoicing user in expenses all approver group can enable re-invoicing on expense type product.</p>
+                <img src="accounting/screenshots/expenses_interaction_7.png" class="center screenshot"/>
+                
+                <h3 id="petty-cash">Petty Cash</h3>
+                <p>Accounting bookkeeper creates journal entry under <i>Accounting >> Accounting >> Journal Entries</i>.</p>
+                <img src="accounting/screenshots/petty_cash_interaction_1.png" class="center screenshot"/>
+                <p>User registers expense, clicks <b>Create Report</b>, and marks as paid by company.</p>
+                <img src="accounting/screenshots/petty_cash_interaction_2.png" class="center screenshot"/>
+                <p>User goes to report, and clicks <b>Submit to Manager</b>.</p>
+                <img src="accounting/screenshots/petty_cash_interaction_3.png" class="center screenshot"/>
+                <p>Manager sets payment method, and clicks <b>Approve</b>.</p>
+                <img src="accounting/screenshots/petty_cash_interaction_4.png" class="center screenshot"/>
+                <p>Manager clicks <b>Post Journal Entries</b>.</p>
+                <img src="accounting/screenshots/petty_cash_interaction_5.png" class="center screenshot"/>
+                <p>Bookkeeper goes to <i>Accounting >> Accounting >> Journal Items</i>, searches for specific account, and clicks <b>Reconcile</b>.</p>
+                <img src="accounting/screenshots/petty_cash_interaction_6.png" class="center screenshot"/><br/>
+                <img src="accounting/screenshots/petty_cash_interaction_7.png" class="center screenshot"/>
+                <p>System assigns partial matching number.</p>
+                <img src="accounting/screenshots/petty_cash_interaction_8.png" class="center screenshot"/>
+                <p>Full reconcile number is assigned when the entries are balanced.</p>
+                <img src="accounting/screenshots/petty_cash_interaction_9.png" class="center screenshot"/>
+
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</html>

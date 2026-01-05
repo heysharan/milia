@@ -1,0 +1,341 @@
+<html>
+    <head>
+        <title>Inventory</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <div class="page">
+            <div class="menus">
+                <ul class="no-style">
+                    <li><a href="#user-groups">User Groups</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <ul class="no-style">
+                        <li><a href="#unit-of-measures">Unit of Measures</a></li>
+                        <ul class="no-style">
+                            <li><a href="#inter-uom-categories">Inter UoM Categories</a></li>
+                        </ul>
+                        <li><a href="#warehouses">Warehouses</a></li>
+                        <li><a href="#locations">Locations</a></li>
+                        <li><a href="#movements">Movements</a></li>
+                        <ul class="no-style">
+                            <li><a href="#3-steps-receipt">3-Steps Receipt</li>
+                            <li><a href="#3-steps-manufacturing">3-Steps Manufacturing</li>
+                            <li><a href="#3-steps-delivery">3-Steps Delivery</li>
+                        </ul>
+                        <li><a href="#transfer-orders">Transfer Orders</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#lots-serials">Lots/Serials</a></li>
+                    </ul>
+                    <li><a href="#inventory-adjustment">Inventory Adjustment</a></li>
+                    <li><a href="#reserve-unreserve">Reserve/Unreserve</a></li>
+                    <li><a href="#reordering-rule">Reordering Rule</a></li>
+                    <li><a href="#configurations">Configurations</a></li>
+                    <hr class="partition-menu"/>
+                    <li><a href="/milia">Back to Home</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h1>Odoo Inventory</h1>
+
+                <h2 id="user-groups">User Groups</h2>
+                <p>
+                    Inventory user groups hierarchy from bottom to top is as follows:
+                </p>
+                <ul>
+                    <li>Inventory: User</li>
+                    <li>Inventory: Administrator</li>
+                </ul>
+                <p>Other groups involved:</p>
+                <ul>
+                    <li>Quality: User</li>
+                    <li>Administration: Settings</li>
+                </ul>
+                <p>Inventory administrator can configure UoMs.</p>
+                <img src="inventory/usecase/uom_interaction.png" class="center"/>
+                <p>Inventory administrator setups the warehouse.</p>
+                <img src="inventory/usecase/warehouse_management_interaction.png" class="center"/>
+                <p>Inventory user interacts with product records.</p>
+                <img src="inventory/usecase/product_interaction.png" class="center"/>
+                <p>Inventory user interacts with transfer orders.</p>
+                <img src="inventory/usecase/transfer_order_interaction.png" class="center"/>
+                <p>Inventory adjustment is useful in updating opening stock in new ERP systems.</p>
+                <img src="inventory/usecase/inventory_adjustment_interaction.png" class="center"/>
+                <p>ERP administrator does following configurations in inventory app.</p>
+                <img src="inventory/usecase/inventory_configuration.png" class="center"/>
+
+                <h2 id="applications">Applications</h2>
+                <h3 id="unit-of-measures">Unit of Measures</h3>
+                <p>Inventory administrator can manage UoMs in UoM categories under <i>Inventory >> Configuration >> Units of Measures >> UoM Categories</i>.</p>
+                <img src="inventory/screenshots/uom_interaction_1.png" class="screenshot center"/>
+                <h4 id="inter-uom-categories">Inter UoM Categories</h4>
+                <p>Below representation gives an overview of what user need to input to manage correct UoM conversions.</p>
+                <table>
+                    <tr>
+                        <th>Product</th>
+                        <th colspan="3">From</th>
+                        <th colspan="3">To</th>
+                    </tr>
+                    <tr>
+                        <td>SS Rods</td>
+                        <td>Length</td>
+                        <td>75</td>
+                        <td>cm</td>
+                        <td>Weight</td>
+                        <td>5</td>
+                        <td>kg</td>
+                    </tr>
+                </table>
+                <br/>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>UoM</th>
+                        <th>Ratio</th>
+                        <th>Reference Type</th>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>g</td>
+                        <td>1000</td>
+                        <td>Smaller</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>kg</td>
+                        <td>1</td>
+                        <td>Reference</td>
+                    </tr>
+                    <tr>
+                        <td>Length</td>
+                        <td>cm</td>
+                        <td>100</td>
+                        <td>Smaller</td>
+                    </tr>
+                    <tr>
+                        <td>Length</td>
+                        <td>m</td>
+                        <td>1</td>
+                        <td>Reference</td>
+                    </tr>
+                </table>
+                <br/>
+                <img src="inventory/sequence/inter_uom_categories.png" class="center"/>
+
+                <h3 id="warehouses">Warehouses</h3>
+                <p>Each configuration does following:</p>
+                <ol>
+                    <li>Select address, this comes from <i>Contacts</i> application.</li>    
+                    <li>Raw material goes for QC so it is received in 3 steps.</li>
+                    <li>Raw material is picked from warehouse and sent to workcenter for production to start. Post production there should be also QC. So manufacturing is done in 3 steps.</li>
+                    <li>Products ready for dispatch comes in clean area for vacuum cleaning, etc. and goes for final packaging so delivery is done in 3 steps.</li>
+                </ol>
+                <img src="inventory/screenshots/warehouse_management_interaction_1.png" class="screenshot center"/>
+
+                <h3 id="locations">Locations</h3>
+                <p>Locations are majorly of two types in Odoo:</p>
+                <ol>
+                    <li>Physical</li>
+                    <li>Virtual</li>
+                </ol>
+                <p>Warehouse has one main location, keeping it as a parent location other sublocations can be configured. Those can be configured under <i>Inventory >> Configuration >> Warehouse Management >> Locations</i>.</p>
+                <ul>
+                    <li>MIL/Stock <i>(main location)</i></li>
+                    <li>Rack 1 <i>(child location)</i></li>
+                    <li>Shelf 1 <i>(child location)</i></li>
+                </ul>
+                <img src="inventory/screenshots/warehouse_management_interaction_2.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/warehouse_management_interaction_3.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/warehouse_management_interaction_4.png" class="screenshot center"/>
+
+                <h3 id="movements">Routes, Rules, Operation Types</h3>
+                <p>Rules are of two types:</p>
+                <ul>
+                    <li><b>Pull</b> - generally stock requirement in production workcenter, or at customer location</li>
+                    <li><b>Push</b> - generally from/to QC, from packing to delivery, or finished product from workcenter to inventory</li>
+                </ul>
+                <p>Routes is the collection of rules.</p>
+                <p>Operation types are selectable on rules and following can be configured on them:</p>
+                <ul>
+                    <li>Type of operation</li>
+                    <ul>
+                        <li>Receipt</li>
+                        <li>Delivery</li>
+                        <li>Internal Transfer</li>
+                        <li>Manufacturing</li>
+                    </ul>
+                    <li>Source Location</li>
+                    <li>Destination Location</li>
+                </ul>
+                <h4 id="3-steps-receipt">3-Steps Receipt</h4>
+                <table>
+                    <tr>
+                        <th>Rule Type</th>
+                        <th>Operation Type</th>
+                        <th>Source Location</th>
+                        <th>Destination Location</th>
+                    </tr>
+                    <tr>
+                        <td>Pull</td>
+                        <td>Receipt</td>
+                        <td>Partners/Vendors</td>
+                        <td>MIL/Input</td>
+                    </tr>
+                    <tr>
+                        <td>Push</td>
+                        <td>Internal Transfer</td>
+                        <td>MIL/Input</td>
+                        <td>MIL/Quality Control</td>
+                    </tr>
+                    <tr>
+                        <td>Push</td>
+                        <td>Internal Transfer</td>
+                        <td>MIL/Quality Control</td>
+                        <td>MIL/Stock</td>
+                    </tr>
+                </table>
+                <h4 id="3-steps-manufacturing">3-Steps Manufacturing</h4>
+                <table>
+                    <tr>
+                        <th>Rule Type</th>
+                        <th>Operation Type</th>
+                        <th>Source Location</th>
+                        <th>Destination Location</th>
+                    </tr>
+                    <tr>
+                        <td>Pull</td>
+                        <td>Internal Transfer</td>
+                        <td>MIL/Stock</td>
+                        <td>MIL/Pre-Production</td>
+                    </tr>
+                    <tr>
+                        <td>Pull</td>
+                        <td>Manufacturing</td>
+                        <td>MIL/Pre-Production</td>
+                        <td>MIL/Post-Production</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <center><i><u>Virtual Locations/Production</u> is when components in process</i></center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Push</td>
+                        <td>Internal Transfer</td>
+                        <td>MIL/Post-Production</td>
+                        <td>MIL/Stock</td>
+                    </tr>
+                </table>
+                <h4 id="3-steps-delivery">3-Steps Delivery</h4>
+                <table>
+                    <tr>
+                        <th>Rule Type</th>
+                        <th>Operation Type</th>
+                        <th>Source Location</th>
+                        <th>Destination Location</th>
+                    </tr>
+                    <tr>
+                        <td>Pull</td>
+                        <td>Internal Transfer</td>
+                        <td>MIL/Stock</td>
+                        <td>MIL/Packing Zone</td>
+                    </tr>
+                    <tr>
+                        <td>Push</td>
+                        <td>Internal Transfer</td>
+                        <td>MIL/Packing Zone</td>
+                        <td>MIL/Output</td>
+                    </tr>
+                    <tr>
+                        <td>Push</td>
+                        <td>Delivery</td>
+                        <td>MIL/Output</td>
+                        <td>Partners/Customers</td>
+                    </tr>
+                </table>
+                <p>Inventory administrator can enable MTO route under <i>Inventory >> Configuration >> Warehouse Management >> Routes</i>.</p>
+                <img src="inventory/screenshots/movements_interaction_1.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/movements_interaction_2.png" class="screenshot center"/>
+                <p>Inventory administrator can also unarchive <b>Subcontracting</b> operation type under <i>Inventory >> Configuration >> Warehouse Management >> Operations Types</i>.</p>
+                <img src="inventory/screenshots/operation_type_interaction_1.png" class="screenshot center"/>
+
+                <h3 id="transfer-orders">Transfer Orders</h3>
+                <p>Inventory user can access three types of transfers (Receipts, Deliveries, Internal) under <i>Inventory >> Operations >> Transfers</i>.</p>
+                <p>Inventory user can generate lot/serial numbers on receipt order.</p>
+                <img src="inventory/screenshots/transfer_order_interaction_1.png" class="screenshot center"/>
+                <p>Inventory user can partially delivery and create backorder.</p>
+                <img src="inventory/screenshots/transfer_order_interaction_2.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/transfer_order_interaction_3.png" class="screenshot center"/>
+                <p>Inventory user can do partial/full returns.</p>
+                <img src="inventory/screenshots/transfer_order_interaction_4.png" class="screenshot center"/>
+                <p>Inventory administrator can create e-Waybills from delivery transfer order.</p>
+                <img src="inventory/screenshots/transfer_order_interaction_5.png" class="screenshot center"/>
+
+                <h3 id="products">Products</h3>
+                <p>User configures product by setting name, image, various descriptions, product category, track inventory, internal reference, and ensuring correct routes selected.</p>
+                <img src="inventory/screenshots/product_interaction_1.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/product_interaction_6.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/product_interaction_7.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/product_interaction_8.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/product_interaction_2.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/product_interaction_3.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/product_interaction_4.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/product_interaction_5.png" class="screenshot center"/>
+                <p>Inventory user can also set expiration date on products tracked by lots/serials.</p>
+                <img src="inventory/screenshots/expiration_date_interaction_1.png" class="screenshot center"/>
+
+                <h3 id="lots-serials">Lots/Serials</h3>
+                <p>On receipt order under <i>Inventory >> Operations >> Transfers >> Receipts</i>, inventory user can set/generate serial numbers.</p>
+                <img src="inventory/screenshots/inventory_user_lot_serial_interaction_1.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/inventory_user_lot_serial_interaction_2.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/inventory_user_lot_serial_interaction_3.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/inventory_user_lot_serial_interaction_4.png" class="screenshot center"/>
+                <p>Setting/generating lot numbers comes with additional option for configuring quantity per lot.</p>
+                <img src="inventory/screenshots/inventory_user_lot_serial_interaction_5.png" class="screenshot center"/>
+
+                <h2 id="inventory-adjustment">Inventory Adjustment</h2>
+                <p>Inventory administrator sets cost on product.</p>
+                <img src="inventory/screenshots/inventory_adjustment_1.png" class="screenshot center"/>
+                <p>Inventory user can then count inventory and adjust under <i>Inventory >> Operations >> Adjustments >> Physical Inventory</i>.</p>
+                <img src="inventory/screenshots/inventory_adjustment_2.png" class="screenshot center"/>
+
+                <h2 id="reserve-unreserve">Reserve/Unreserve</h2>
+                <p>Based on priority, inventory user can do reservation and unreservation of stock.</p>
+                <p>For instance, below are the two manufacturing orders, <i>MIL/MO/00061</i> in which components are available and <i>MIL/MO/00062</i> which has no components. But the <b>latter</b> is the priority.</p>
+                <img src="inventory/screenshots/reserve_unreserve_interaction_1.png" class="screenshot center"/>
+                <p>Inventory user can access the transfer order picking the components from warehouse, and unreserve stock using icon button.</p>
+                <img src="inventory/screenshots/reserve_unreserve_interaction_2.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/reserve_unreserve_interaction_3.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/reserve_unreserve_interaction_4.png" class="screenshot center"/>
+                <p>User can come to transfer order picking components for manufacturing order with higher priority, and click button in header <b>Check Availability</b>. This will bring transfer order from <i>Waiting -> Ready</i> stage.</p>
+                <img src="inventory/screenshots/reserve_unreserve_interaction_5.png" class="screenshot center"/>
+
+                <h2 id="reordering-rule">Reordering Rule</h2>
+                <p>Inventory administrator can configure reordering rules on product.</p>
+                <img src="inventory/screenshots/reordering_rule_interaction_1.png" class="screenshot center"/><br/>
+                <img src="inventory/screenshots/reordering_rule_interaction_2.png" class="screenshot center"/>
+                <p>Scheduler executes one time everyday for checking any new procurements to do based on rules configured. Inventory user can execute it manually also under <i>Inventory >> Operations >> Procurement: run scheduler</i>.</p>
+                <img src="inventory/screenshots/reordering_rule_interaction_3.png" class="screenshot center"/>
+
+                <h2 id="configurations">Configurations</h2>
+                <p>ERP administrator can do configurations under <i>Inventory >> Configuration >> Settings</i>.</p>
+                <img src="inventory/screenshots/inventory_configuration_1.png" class="screenshot center"/>
+                <br/>
+                <img src="inventory/screenshots/inventory_configuration_5.png" class="screenshot center"/>
+                <br/>
+                <img src="inventory/screenshots/inventory_configuration_3.png" class="screenshot center"/>
+                <br/>
+                <img src="inventory/screenshots/inventory_configuration_4.png" class="screenshot center"/>
+                <br/>
+                <img src="inventory/screenshots/inventory_configuration_6.png" class="screenshot center"/>
+                <br/>
+                <img src="inventory/screenshots/inventory_configuration_7.png" class="screenshot center"/>
+
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</html>

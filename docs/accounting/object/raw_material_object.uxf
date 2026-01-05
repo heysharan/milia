@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>150</y>
+      <w>290</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Journal Entry: Stock Out (Resin)
+--
+212400 Stock                    0.00 3,375.00
+212500 Stock Interim 3,375.00        0.00</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>240</y>
+      <w>290</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Journal Entry: Stock Out (Solvent)
+--
+212400 Stock                   0.00   105.00
+212500 Stock Interim   105.00       0.00</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

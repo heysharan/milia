@@ -1,0 +1,43 @@
+.container {
+    width: 100%;
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.screenshot {
+    width: 800px;
+    height: 400px;
+}
+
+.page {
+    overflow: auto;
+}
+
+.menus {
+    position: fixed;
+    width: 20%;
+    float: left;
+}
+
+.content {
+    width: 80%;
+    float: right;
+}
+
+ul.no-style {
+    list-style-type: none;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+hr.partition-menu {
+    margin-left: 0px;
+    width: 90%;
+}

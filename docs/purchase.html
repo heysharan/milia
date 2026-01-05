@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <title>Purchase</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <div class="page">
+            <div class="menus">
+                <ul class="no-style">
+                    <li><a href="#user-groups">User Groups</a></li>
+                    <li><a href="#states">States</a></li>
+                    <li><a href="#user-groups">User Groups</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <ul class="no-style">
+                        <li><a href="#vendors">Vendors</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#purchase-orders">Purchase Orders</a></li>
+                        <li><a href="#landed-costs">Landed Costs</a></li>
+                        <li><a href="#configuration">Configuration</a></li>
+                    </ul>
+                    <hr class="partition-menu"/>
+                    <li><a href="/milia">Back to Home</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h1>Odoo Purchase</h1>
+
+                <h2 id="user-groups">User Groups</h2>
+                <p>Purchase team hierarchy from botton to top is as follows:</p>
+                <ul>
+                    <li>Purchase: User</li>
+                    <li>Purchase: Administrator</li>
+                </ul>
+                <p>Other groups involved:</p>
+                <ul>
+                    <li>Administration: Settings</li>
+                    <li>Accounting: Invoicing</li>
+                    <li>Inventory: User</li>
+                </ul>
+                <p>Purchase user can manage vendor records.</p>
+                <img src="purchase/usecase/purchase_user_vendor_interaction.png" class="center"/>
+                <p>Purchase user can manage product records.</p>
+                <img src="purchase/usecase/purchase_user_product_interaction.png" class="center"/>
+                <p>Configuring vendors above in product is configuring supplier pricelists. Purchase user can configure following on supplier pricelists.</p>
+                <img src="purchase/usecase/purchase_user_supplier_pricelist_interaction.png" class="center"/>
+                <p>ERP administrator does following configurations in purchase app.</p>
+                <img src="purchase/usecase/configuration_interaction.png" class="center"/>
+
+                <h2 id="states">States</h2>
+                <p>Below diagrams depicts state change of purchase order based on purchase amount.</p>
+                <img src="purchase/state/purchase_approval.png" class="center"/>
+
+                <h2 id="applications">Applications</h2>
+                <h3 id="vendors">Vendors</h3>
+                <p>Purchase user can access vendors under <i>Contacts</i> application.</p>
+                <img src="purchase/screenshots/invoicing_user_vendor_interaction_1.png" class="center screenshot"/>
+                <p>User can create <b>Individual/Company</b> type supplier, and can configure tax details.</p>
+                <img src="purchase/screenshots/invoicing_user_vendor_interaction_2.png" class="center screenshot"/>
+                <p>User can set contact details.</p>
+                <img src="purchase/screenshots/invoicing_user_vendor_interaction_3.png" class="center screenshot"/>
+                <p>User can add additional contacts within main supplier company contact.</p>
+                <img src="purchase/screenshots/invoicing_user_vendor_interaction_4.png" class="center screenshot"/>
+
+                <h3 id="products">Products</h3>
+                <p>User can create new products under <i>Purchase >> Products >> Products</i>.</p>
+                <img src="purchase/screenshots/purchase_user_product_interaction_1.png" class="center screenshot"/>
+                <p>User sets tracking by lots/serials.</p>
+                <img src="purchase/screenshots/purchase_user_product_interaction_2.png" class="center screenshot"/>
+                <p>User can configure multiple vendors on a product.</p>
+                <img src="purchase/screenshots/purchase_user_product_interaction_3.png" class="center screenshot"/>
+                <p>Priority can be set on vendors.</p>
+                <img src="purchase/screenshots/purchase_user_product_interaction_4.png" class="center screenshot"/>
+                <p>Purchase administrator can set purchase UoM on product.</p>
+                <img src="purchase/screenshots/purchase_user_product_interaction_5.png" class="center screenshot"/>
+                <p>Purchase administrator can convert only service type product to landed cost service type product.</p>
+                <img src="purchase/screenshots/purchase_user_product_interaction_6.png" class="screenshot center"/>
+
+                <h3 id="purchase-orders">Purchase Orders</h3>
+                <p>Purchase user can access orders under <i>Purchase >> Orders >> Requests for Quotation</i>. User can confirm order using <b>Confirm Order</b> button.</p>
+                <img src="purchase/screenshots/user_purchase_order_interaction_1.png" class="center screenshot"/>
+                <p>Purchase administrator can approve order above minimum amount configured by ERP administrator using <b>Approve Order</b> button.</p>
+                <img src="purchase/screenshots/user_purchase_order_interaction_2.png" class="center screenshot"/>
+                <p>Line-wise discounts can be added by filling discount column in purchase order lines.</p>
+                <img src="purchase/screenshots/user_purchase_order_interaction_3.png" class="center screenshot"/>
+                <p>Global discounts can be added by managing separate negative purchase order line.</p>
+                <img src="purchase/screenshots/user_purchase_order_interaction_4.png" class="center screenshot"/>
+                <p>Amendment to purchase order is tracked in chatter area of the form view.</p>
+                <img src="purchase/screenshots/user_purchase_order_interaction_5.png" class="center screenshot"/>
+
+                <h3 id="landed-costs">Landed Costs</h3>
+                <p>Purchase user selects landed cost product in purchase order.</p>
+                <img src="purchase/screenshots/landed_cost_1.png" class="center screenshot"/>
+                <p>Purchase user can create bill by clicking <b>Create Bill</b> button.</p>
+                <img src="purchase/screenshots/landed_cost_2.png" class="center screenshot"/>
+                <p>Purchase user being in <i>Accounting / Invoicing</i> and <i>Inventory / Administrator</i> group can create landed cost record from vendor bill by clicking <b>Create Landed Costs</b> button.</p>
+                <p><i>Accounting / Invoicing</i> group has access to vendor bill records.</p>
+                <p><i>Inventory / Administrator</i> group has access to landed cost records.</p>
+                <img src="purchase/screenshots/landed_cost_3.png" class="center screenshot"/>
+                <p>On landed cost record, purchase user should select related receipt order.</p>
+                <img src="purchase/screenshots/landed_cost_4.png" class="center screenshot"/>
+                <p>Landed costs can be split by:</p>
+                <ul>
+                    <li>Equal</li>
+                    <li>Quantity</li>
+                    <li>Current Cost</li>
+                    <li>Weight</li>
+                    <li>Volume</li>
+                </ul>
+
+                <h3 id="configuration">Configuration</h3>
+                <p>ERP administrator sets minimum amount for additional approval of purchase order under <i>Purchase >> Configuration >> Settings</i>.</p>
+                <img src="purchase/screenshots/configuration_interaction_1.png" class="center screenshot"/>
+                
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</html>

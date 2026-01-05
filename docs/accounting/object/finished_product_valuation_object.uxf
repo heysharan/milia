@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <help_text/>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>120</y>
+      <w>330</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Journal Entry: Stock In
+--
+212500 Stock Interim           0.00  21,400.00
+212500 Stock              21,400.00           0.00</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

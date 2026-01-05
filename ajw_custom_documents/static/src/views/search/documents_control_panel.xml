@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ajw_custom_documents.ControlPanel" t-inherit="documents.ControlPanel" t-inherit-mode="extension">
+        <xpath expr="//button[@t-on-click='() => this.onRename()']" position="after">
+            <button class="dropdown-item w-100"
+                t-on-click="() => this.onExpireDate()"
+                t-if="(userIsInternal or editMode) and singleSelection and !isInTrash">
+                <i class="fa fa-fw fa-calendar me-1"/>
+                <span class="d-inline-block">Expire Date</span>
+            </button>
+        </xpath>
+    </t>
+
+</templates>

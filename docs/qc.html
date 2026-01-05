@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>QC</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <div class="page">
+            <div class="menus">
+                <ul class="no-style">
+                    <li><a href="#user-groups">User Groups</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <ul class="no-style">
+                        <li><a href="#qc-teams">Quality Teams</a></li>
+                        <li><a href="#control-points">Control Points</a></li>
+                        <li><a href="#quality-checks">Quality Checks</a></li>
+                    </ul>
+                    <li><a href="#gauge-calibration">Gauge Calibration</a></li>
+                    <hr class="partition-menu"/>
+                    <li><a href="/milia">Back to Home</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h1>Odoo QC</h1>
+
+                <h2 id="user-groups">User Groups</h2>
+                <p>
+                    Quality user groups hierarchy from bottom to top is as follows:
+                </p>
+                <ul>
+                    <li>Quality: User</li>
+                    <li>Quality: Administrator</li>
+                </ul>
+                <p>Other groups involved:</p>
+                <ul>
+                    <li>Administration: Settings</li>
+                </ul>
+                <p>Quality Administrator can configure teams.</p>
+                <img src="qc/usecase/quality_teams_interaction.png" class="center"/>
+                <p>Quality Adminstrator configures control points.</p>
+                <img src="qc/usecase/control_points_interaction.png" class="center"/>
+                <p>Quality user works on quality checks.</p>
+                <img src="qc/usecase/quality_checks_interaction.png" class="center"/>
+
+                <h2 id="activities">Activities</h2>
+                <p>QC on stock transfer will have the following flow.</p>
+                <img src="qc/activity/quality_check_on_transfer.png" class="center"/>
+
+                <h2 id="applications">Applications</h2>
+                <h3 id="qc-teams">Quality Teams</h3>
+                <p>Quality administrator can configure separate team for third-party QC which can be later configured on quality controls under <i>Quality >> Configuration >> Quality Teams</i>.</p>
+                <img src="qc/screenshots/quality_teams_interaction_1.png" class="center screenshot"/>
+                <p>Third-party QC incurs some cost. For adding the cost on valuation of raw materials, manage cost using <a href="/milia/purchase#landed-costs">Landed costs</a>. Customer can be reinvoiced through <a href="/milia/accounting#expenses">Expense app</a>.</p>
+                <p>Quality user registers expense using re-invoicing service product.</p>
+                <img src="qc/screenshots/quality_teams_interaction_2.png" class="center screenshot"/>
+                <p>On report, quality user sets manager who will approve this expense.</p>
+                <img src="qc/screenshots/quality_teams_interaction_3.png" class="center screenshot"/>
+                <p>Sales user being also expense all approver user can set related sales order to re-invoice and approve the expense.</p>
+                <img src="qc/screenshots/quality_teams_interaction_4.png" class="center screenshot"/>
+                <p>Sales user in accounting invoicing group can post expense report using <b>Post Journal Entries</b> button. This will also create a new order line in related sales order.</p>
+                <img src="qc/screenshots/quality_teams_interaction_5.png" class="center screenshot"/><br/>
+                <img src="qc/screenshots/quality_teams_interaction_6.png" class="center screenshot"/>
+
+                <h3 id="control-points">Control Points</h3>
+                <p>Quality administrator can configure control points under <i>Quality >> Quality Control >> Control Points</i>.</p>
+                <img src="qc/screenshots/quality_control_interaction_1.png" class="center screenshot"/>
+                <p>Same quality control can be configured for multiple products.</p>
+                <img src="qc/screenshots/quality_control_interaction_2.png" class="center screenshot"/>
+                <p>Operation type should be selected based on QC, either at supplier's place or in-house.</p>
+                <table>
+                    <tr>
+                        <th>QC Place</th>
+                        <th>Operation Type</th>
+                        <th>Transfer Source</th>
+                        <th>Transfer Destination</th>
+                    </tr>
+                    <tr>
+                        <td>Supplier</td>
+                        <td>Receipts</td>
+                        <td>Partners/Vendors</td>
+                        <td>MIL/Input</td>
+                    </tr>
+                    <tr>
+                        <td>In-house</td>
+                        <td>Storage</td>
+                        <td>MIL/Quality Control</td>
+                        <td>MIL/Stock</td>
+                    </tr>
+                </table>
+                <img src="qc/screenshots/quality_control_interaction_3.png" class="center screenshot"/>
+                <p>Select <i>Quantity</i> in <b>Control per</b> field. Also configure locations on which products failing QC should go.</p>
+                <img src="qc/screenshots/quality_control_interaction_4.png" class="center screenshot"/>
+                <p>Other <b>Control per</b> options available are:</p>
+                <ul>
+                    <li>Operation</li>
+                    <li>Product</li>
+                </ul>
+                <p>If field <b>Type</b> is set to <i>Worksheet</i>, then configure success conditions.</p>
+                <img src="qc/screenshots/quality_control_interaction_5.png" class="center screenshot"/>
+                <p>ERP administrator can configure worksheet with <b>Odoo Studio</b> under <i>Quality >> Configuration >> Quality Worksheet Templates</i>.</p>
+                <img src="qc/screenshots/quality_control_interaction_7.png" class="center screenshot"/>
+                <p>If field <b>Type</b> is set to <i>Measure</i>, configure norm and tolerance.</p>
+                <img src="qc/screenshots/quality_control_interaction_6.png" class="center screenshot"/>
+
+                <h3 id="quality-checks">Quality Checks</h3>
+                <p>Quality user can access quality checks under <i>Quality >> Quality Control >> Quality Checks</i>. The quality check with test type measure has <i>Measure</i> field visible, and quality check with test type worksheet has worksheet fill smart button visible.</p>
+                <img src="qc/screenshots/quality_check_interaction_1.png" class="center screenshot"/><br/>
+                <img src="qc/screenshots/quality_check_interaction_2.png" class="center screenshot"/>
+                <p>Certificates and other documents can be added on quality check records using <u>paperclip</u> icon.</p>
+                <img src="qc/screenshots/quality_check_interaction_3.png" class="center screenshot"/>
+
+                <h2 id="gauge-calibration">Gauge Calibration</h2>
+                <p>ERP user can raise calibration request under <i>Maintenance >> Maintenance >> Maintenance Requests</i>.</p>
+                <img src="qc/screenshots/maintenance_interaction_1.png" class="center screenshot"/>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</html>

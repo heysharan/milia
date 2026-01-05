@@ -1,0 +1,186 @@
+<html>
+    <head>
+        <title>Manufacturing</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <div class="page">
+            <div class="menus">
+                <ul class="no-style">
+                    <li><a href="#user-groups">User Groups</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <ul class="no-style">
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#workcenter">Workcenter</a></li>
+                        <li><a href="#bom">Bill of Material</a></li>
+                        <li><a href="#operations">Operations</a></li>
+                        <li><a href="#mrp-order">Manufacturing Order</a></li>
+                        <li><a href="#workorder">Work Order</a></li>
+                        <li><a href="#subcontracting">Subcontracting</a></li>
+                        <li><a href="#lots-serials">Lots/Serials</a></li>
+                        <li><a href="#shop-floor-ui">Shop Floor UI</a></li>
+                    </ul>
+                    <li><a href="#maintenance">Maintenance</a></li>
+                    <li><a href="#configurations">Configurations</a></li>
+                    <hr class="partition-menu"/>
+                    <li><a href="/milia">Back to Home</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h1>Odoo Manufacturing</h1>
+                <h2 id="user-groups">User Groups</h2>
+                <p>
+                    Manufacturing user groups hierarchy from bottom to top is as follows:
+                </p>
+                <ul>
+                    <li>Manufacturing: User</li>
+                    <li>Manufacturing: Administrator</li>
+                </ul>
+                <p>
+                    Other user groups involved are:
+                </p>
+                <ul>
+                    <li>Inventory: User</li>
+                    <li>Inventory: Administrator</li>
+                    <li>Purchase: User</li>
+                    <li>Quality: User</li>
+                    <li>Employees: Officer: Manage all employees</li>
+                    <li>Administration: Settings</li>
+                    <li>User types: Internal User</li>
+                    <li>Maintenance: Equipment Manager</li>
+                </ul>
+                <p>Bill of materials can be created by manufacturing administrator.</p>
+                <img src="manufacturing/usecase/bom_interaction.png" class="center"/>
+                <p>Manufacturing users can do following operations with manufacturing order.</p>
+                <img src="manufacturing/usecase/manufacturing_order_interaction.png" class="center"/>
+                <p>Manufacturing users can create raw material records.</p>
+                <img src="manufacturing/usecase/product_interaction.png" class="center"/>
+                <p>Manufacturing users has access to work orders.</p>
+                <img src="manufacturing/usecase/work_order_interaction.png" class="center"/>
+                <p>Manufacturing administrator can configure workcenters.</p>
+                <img src="manufacturing/usecase/workcenter_interaction.png" class="center"/>
+                <img src="manufacturing/usecase/employees_interaction.png" class="center"/>
+                <p>Equipment manager can create maintenance teams.</p>
+                <img src="manufacturing/usecase/maintenance_team_interaction.png" class="center"/>
+                <p>Equipment manager manages equipment categories, and equipments.</p>
+                <img src="manufacturing/usecase/equipment_category_interaction.png" class="center"/>
+                <img src="manufacturing/usecase/equipment_interaction.png" class="center"/>
+                <p>ERP users can raise, or can work on maintenance requests.</p>
+                <img src="manufacturing/usecase/maintenance_request_interaction.png" class="center"/>
+                <p>ERP administrator sets up manufacturing app.</p>
+                <img src="manufacturing/usecase/configuration_interaction.png" class="center"/>
+
+                <h2 id="activities">Activities</h2>
+                <p>The below activity shows the planning of components and operations involved in producing requested product.</p>
+                <img src="manufacturing/activity/bom_activity.png" class="center"/>
+                <p>The below activity shows multi-BoMs when manufactured component goes further in production line.</p>
+                <img src="manufacturing/activity/multi_boms_activity.png" class="center"/>
+
+                <h2 id="applications">Applications</h2>
+                <h3 id="products">Products</h3>
+                <p>User can set MTO and manufacturing route on component product.</p>
+                <img src="manufacturing/screenshots/raw_material_interaction_1.png" class="center screenshot"/>
+                <p>User can set buy route along with MTO on component to purchase.</p>
+                <img src="manufacturing/screenshots/raw_material_interaction_2.png" class="center screenshot"/>
+                <p>User can set mapping when consumption is done in different UoM category.</p>
+                <img src="manufacturing/screenshots/raw_material_interaction_3.png" class="center screenshot"/>
+
+                <h3 id="workcenter">Work Center</h3>
+                <p>Manufacturing administrator can configure work centers under <i>Manufacturing >> Configuration >> Work Centers</i>. They can set operating cost per hour of the work center.</p>
+                <img src="manufacturing/screenshots/workcenter_interaction_1.png" class="center screenshot"/>
+
+                <h3 id="bom">Bill of Material</h3>
+                <p>Manufacturing administrator can manage BoMs under <i>Manufacturing >> Products >> Bills of Materials</i>. The operations can be configured on <i>Operations</i> page in BoM.</p>
+                <img src="manufacturing/screenshots/bom_interaction_1.png" class="center screenshot"/>
+                <br/>
+                <img src="manufacturing/screenshots/bom_interaction_2.png" class="center screenshot"/>
+                <p>Manufacturing administrator can set quantity to consume in different UoM category, and that calculates quantity in main UoM category.</p>
+                <img src="manufacturing/screenshots/bom_interaction_3.png" class="center screenshot"/>
+
+                <h3 id="operations">Operations</h3>
+                <p>Manufacturing administrator can update drawings on operations under <i>Manufacturing >> Configuration >> Operations</i>. Previous versions can be managed through logging notes in chatter area.</p>
+                <img src="manufacturing/screenshots/operation_interaction_1.png" class="center screenshot"/><br/>
+                <img src="manufacturing/screenshots/operation_interaction_2.png" class="center screenshot"/>
+
+                <h3 id="mrp-order">Manufacturing Order</h3>
+                <p>User can access manufacturing orders under <i>Manufacturing >> Operations >> Manufacturing Orders</i>, and can set bill of material.</p>
+                <img src="manufacturing/screenshots/mrp_order_interaction_1.png" class="center screenshot"/>
+                <p>User can access child MO using <b>Child MO</b> smart button.</p>
+                <img src="manufacturing/screenshots/mrp_order_interaction_2.png" class="center screenshot"/>
+                <p>User gets option to start partial production.</p>
+                <img src="manufacturing/screenshots/mrp_order_interaction_3.png" class="center screenshot"/><br/>
+                <img src="manufacturing/screenshots/mrp_order_interaction_4.png" class="center screenshot"/>
+
+                <h3 id="workorder">Work Order</h3>
+                <p>Manufacturing user can access work orders under <i>Manufacturing >> Operations >> Work Orders</i>.</p>
+                <img src="manufacturing/screenshots/workorder_interaction_1.png" class="center screenshot"/>
+                <p>Manufacturing administrator can see time spent by operators on workorder.</p>
+                <img src="manufacturing/screenshots/workorder_interaction_2.png" class="center screenshot"/>
+                <p>Manufacturing user should wait till the work order comes into <b>Ready</b> stage.</p>
+                <img src="manufacturing/screenshots/workorder_interaction_3.png" class="center screenshot"/>
+
+                <h3 id="subcontracting">Subcontracting</h3>
+                <p>Manufacturing user can set <b>Replenish on Order (MTO)</b> and <b>Buy</b> route on component that needs to be subcontracted.</p>
+                <img src="manufacturing/screenshots/subcontracting_interaction_1.png" class="center screenshot"/>
+                <p>Manufacturing user selects <b>Resupply Subcontractor on Order</b> route on component to send to subcontractor.</p>
+                <img src="manufacturing/screenshots/subcontracting_interaction_2.png" class="center screenshot"/>
+                <p>Purchase user can set vendor (subcontractor) on product.</p>
+                <img src="manufacturing/screenshots/subcontracting_interaction_3.png" class="center screenshot"/>
+                <p>Manufacturing administrator can configure BoM of type <b>Subcontracting</b>.</p>
+                <img src="manufacturing/screenshots/subcontracting_interaction_4.png" class="center screenshot"/>
+                <p>On confirming MO, purchase user receives the purchase order.</p>
+                <img src="manufacturing/screenshots/subcontracting_interaction_5.png" class="center screenshot"/>
+                <p>Purchase user being an inventory user also can access <i>resupply</i> and <i>receipt</i> orders.</p>
+                <img src="manufacturing/screenshots/subcontracting_interaction_6.png" class="center screenshot"/>
+                <p>Purchase user being an inventory administrator can generate e-Waybill for components sent to subcontractor.</p>
+                <img src="manufacturing/screenshots/subcontracting_interaction_7.png" class="center screenshot"/>
+                <p>Purchase user being an inventory and manufacturing user can record components.</p>
+                <img src="manufacturing/screenshots/subcontracting_interaction_8.png" class="center screenshot"/><br/>
+                <img src="manufacturing/screenshots/subcontracting_interaction_9.png" class="center screenshot"/>
+                <p>Production user can access subcontract MO under <i>Manufacturing >> Operations >> Manufacturing Orders</i>.</p>
+                <p>Job card for subcontractor can be managed on this manufacturing order record.</p>
+                <img src="manufacturing/screenshots/subcontracting_interaction_10.png" class="center screenshot"/>
+                <p>Inventory user can receive finished product by clicking <b>Validate</b> button on receipt order.</p>
+                <p>The receipt order can be considered as <b>Labour Charge Acceptance Note</b>.</p>
+                <img src="manufacturing/screenshots/subcontracting_interaction_11.png" class="center screenshot"/>
+
+                <h3 id="lots-serials">Lots/Serials</h3>
+                <p>Manufacturing user can generate serial numbers from order under <i>Manufacturing >> Operations >> Manufacturing Orders</i>.</p>
+                <img src="manufacturing/screenshots/mrp_user_lot_serial_interaction_1.png" class="center screenshot"/>
+                <p>Manufacturing user can manually set first lot number for product being produced.</p>
+                <img src="manufacturing/screenshots/mrp_user_lot_serial_interaction_2.png" class="center screenshot"/><br/>
+                <img src="manufacturing/screenshots/mrp_user_lot_serial_interaction_3.png" class="center screenshot"/>
+                <p>Next time system follows incremental sequence for the lot of the same product produced.</p>
+                <img src="manufacturing/screenshots/mrp_user_lot_serial_interaction_4.png" class="center screenshot"/>
+
+                <h3 id="shop-floor-ui">Shop Floor UI</h3>
+
+                <h2 id="maintenance">Maintenance</h2>
+                <p>Equipment manager can create teams under <i>Maintenance >> Configuration >> Maintenance Teams</i>.</p>
+                <img src="manufacturing/screenshots/maintenance_interaction_1.png" class="center screenshot"/>
+                <p>Equipment manager can create new equipment categories under <i>Maintenance >> Configuration >> Equipment Categories</i>.</p>
+                <img src="manufacturing/screenshots/maintenance_interaction_2.png" class="center screenshot"/>
+                <p>Equipment manager can create new equipments under <i>Maintenance >> Equipment >> Machines &amp; Tools</i>.</p>
+                <img src="manufacturing/screenshots/maintenance_interaction_3.png" class="center screenshot"/>
+                <p>ERP user can raise any maintenance request under <i>Maintenance >> Maintenance >> Maintenance Requests</i>.</p>
+                <img src="manufacturing/screenshots/maintenance_interaction_4.png" class="center screenshot"/>
+
+                <h2 id="configurations">Configurations</h2>
+                <p>ERP administrator can enable work orders, shop floor UI, and subcontracting feature under <i>Manufacturing >> Configuration >> Settings</i>.</p>
+                <img src="manufacturing/screenshots/configuration_interaction_1.png" class="center screenshot"/>
+                <br/>
+                <img src="manufacturing/screenshots/configuration_interaction_3.png" class="center screenshot"/>
+                <br/>
+                <img src="manufacturing/screenshots/configuration_interaction_4.png" class="center screenshot"/>
+                <p>ERP administrator can enable custom worksheets for maintenance requests under <i>Maintenance >> Configuration >> Settings</i>.</p>
+                <img src="manufacturing/screenshots/configuration_interaction_5.png" class="center screenshot"/>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</html>

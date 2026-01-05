@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <title>Sales</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <div class="page">
+            <div class="menus">
+                <ul class="no-style">
+                    <li><a href="#user-groups">User Groups</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <ul class="no-style">
+                        <li><a href="#crm">CRM</a></li>
+                        <li><a href="#sales">Sales</a></li>
+                        <li><a href="#delivery-orders">Delivery Orders</a></li>
+                        <li><a href="#product">Product</a></li>
+                        <li><a href="#customer">Customer</a></li>
+                        <li><a href="#pricelists">Pricelists</a></li>
+                        <li><a href="#erp-settings">ERP Settings</a></li>
+                    </ul>
+                    <hr class="partition-menu"/>
+                    <li><a href="/milia">Back to Home</a></li>
+                <ul>
+            </div>
+
+            <div class="content">
+                <h1>Odoo Sales</h1>
+                <h2 id="user-groups">User Groups</h2>
+                <p>
+                    Sales team hierarchy from bottom to top is as follows:
+                </p>
+                <ul>
+                    <li>Sales: User: All Documents</li>
+                    <li>Sales: Administrator</li>
+                </ul>
+                <p>
+                    Other user groups involved are:
+                </p>
+                <ul>
+                    <li>Inventory: User</li>
+                    <li>Inventory: Administrator</li>
+                    <li>Administration: Settings</li>
+                </ul>
+                <p>
+                    Sales user should be still present in <i>Inventory / User group</i> to perform certain operation on product master.
+                </p>
+                <p>
+                    User interaction with lead, sales quotation, delivery order, product, and customer records is illustrated below:
+                </p>
+                <img src="sales/usecase/sales_user_crm_lead_interaction.png" class="center"/>
+                <img src="sales/usecase/sales_user_quotation_interaction.png" class="center"/>
+                <img src="sales/usecase/sales_admin_configuration_interaction.png" class="center"/>
+                <img src="sales/usecase/sales_user_delivery_order_interaction.png" class="center"/>
+                <img src="sales/usecase/sales_user_product_interaction.png" class="center"/>
+                <img src="sales/usecase/sales_user_customer_interaction.png" class="center"/>
+                <img src="sales/usecase/erp_admin_sales_order_sequence_interaction.png" class="center"/>
+                <img src="sales/usecase/sales_user_pricelist_interaction.png" class="center"/>
+                <h2 id="activities">Activities</h2>
+                <p>The below diagram shows the steps included when lead record is created in database, from which sales order is created, and at the end a request for manufacturing department is raised for doing feasibility study of the manufacturing of the requested product.</p>
+                <img src="sales/activity/lead_to_send_to_production_activity.png" class="center"/>
+                <p>The below diagram shows the flow of creating direct sales order for existing customer on their new order.</p>
+                <img src="sales/activity/create_direct_quotation_activity.png" class="center"/>
+                <p>The below diagram shows how expected delivery date gets computed based on lead times.</p>
+                <img src="sales/sequence/expected_delivery_date.png" class="center"/>
+                <p>The below diagram shows return and scrap flow.</p>
+                <img src="sales/activity/scrap_returns_activity.png" class="center"/>
+
+                <h2 id="applications">Application-wise steps</h2>
+                <h3 id="crm">CRM</h3>
+                <p>Access CRM app from main dashboard</p>
+                <img src="sales/screenshots/sales_user_crm_lead_interaction_1.png" class="center screenshot"/>
+                <p>Create new lead by clicking <i>New</i> button in CRM kanban view, and add label, phone, and email</p>
+                <img src="sales/screenshots/sales_user_crm_lead_interaction_2.png" class="center screenshot"/>
+                <p>Set all information under <i>Extra Information</i> page as it is further used when creating new customer</p>
+                <img src="sales/screenshots/sales_user_crm_lead_interaction_3.png" class="center screenshot"/>
+                <p>Create Quotation from Lead, which also gives option to create a new customer record</p>
+                <img src="sales/screenshots/sales_user_crm_lead_interaction_4.png" class="center screenshot"/>
+                <br/>
+                <img src="sales/screenshots/sales_user_crm_lead_interaction_5.png" class="center screenshot"/>
+                <p>Mark lead as lost</p>
+                <img src="sales/screenshots/sales_user_crm_lead_interaction_6.png" class="center screenshot"/>
+                <br/>
+                <img src="sales/screenshots/sales_user_crm_lead_interaction_7.png" class="center screenshot"/>
+                <p>Document additional notes on lead record</p>
+                <img src="sales/screenshots/sales_user_crm_lead_interaction_8.png" class="center screenshot"/>
+                <h3 id="sales">Sales</h3>
+                <p>Access Sales app from main dashboard</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_1.png" class="center screenshot"/>
+                <p>Direct sales order can be created using <i>New</i> button</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_2.png" class="center screenshot"/>
+                <p>Add order lines by clicking <i>Add a product</i> link</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_3.png" class="center screenshot"/>
+                <p>Set quantity in order line</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_4.png" class="center screenshot"/>
+                <p>Create new products to later configure in order lines</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_5.png" class="center screenshot"/>
+                <p>Set lead times on sales order lines</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_12.png" class="center screenshot"/>
+                <p>Set shipping policy under <i>Other Info</i> page based on which delivery gets scheduled</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_6.png" class="center screenshot"/>
+                <p>Sales user can send PRO-FORMA invoice to customer.</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_20.png" class="center screenshot"/>
+                <p>Sales user can access delivery records from below highlighted smart button</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_13.png" class="center screenshot"/>
+                <p>Send request to production, and check production activities from sales order</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_10.png" class="center screenshot"/>
+                <br/>
+                <img src="sales/screenshots/sales_user_quotation_interaction_11.png" class="center screenshot"/>
+                <p>Cancel a quotation</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_8.png" class="center screenshot"/>
+                <h3 id="delivery-orders">Delivery Orders</h3>
+                <p>Delivery can be split for products by updating quantity on moves, and creating backorder at time of validating delivery</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_14.png" class="center screenshot"/>
+                <br/>
+                <img src="sales/screenshots/sales_user_quotation_interaction_15.png" class="center screenshot"/>
+                <br/>
+                <img src="sales/screenshots/sales_user_quotation_interaction_16.png" class="center screenshot"/>
+                <p>The backorder gets updated delivery date</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_17.png" class="center screenshot"/>
+                <p>Do return for exchange by clicking <i>Return</i> button</p>
+                <p><b>Note: Sales user should check T&Cs on sales quotation for warranty related information</b></p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_18.png" class="center screenshot"/>
+                <p>Scrap return</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_19.png" class="center screenshot"/><br/>
+                <img src="sales/screenshots/sales_user_quotation_interaction_21.png" class="center screenshot"/><br/>
+                <img src="sales/screenshots/sales_user_quotation_interaction_22.png" class="center screenshot"/>
+                <h3 id="product">Product</h3>
+                <p>To sales user, product master is accessible under:</p>
+                <ol>
+                    <li><i>Sales >> Products >> Products</i></li>
+                    <li><i>Inventory >> Products >> Products</i></li>
+                </ol>
+                <p>Set product name</p>
+                <img src="sales/screenshots/sales_user_product_interaction_1.png" class="center screenshot"/>
+                <p>Set sales price after getting details from manufacturing department, this helps in getting price for repeat orders with same drawing specification</p>
+                <img src="sales/screenshots/sales_user_product_interaction_2.png" class="center screenshot"/>
+                <p>Set HSN code</p>
+                <img src="sales/screenshots/sales_user_product_interaction_8.png" class="center screenshot"/>
+                <p>Set sales tax</p>
+                <img src="sales/screenshots/sales_user_product_interaction_3.png" class="center screenshot"/>
+                <p>Set track inventory by unique serial number/lots</p>
+                <img src="sales/screenshots/sales_user_product_interaction_4.png" class="center screenshot"/>
+                <p>Set unique internal reference based on unique drawing number which further helps in managing repeat orders</p>
+                <img src="sales/screenshots/sales_user_product_interaction_5.png" class="center screenshot"/>
+                <p>Select Manufacture route along with MTO under <i>Inventory</i> page</p>
+                <img src="sales/screenshots/sales_user_product_interaction_6.png" class="center screenshot"/>
+                <p>Set Customer Lead Time</p>
+                <img src="sales/screenshots/sales_user_product_interaction_7.png" class="center screenshot"/>
+                <h3 id="customer">Customer</h3>
+                <p>Customer records are accessible under Contacts app</p>
+                <img src="sales/screenshots/sales_user_customer_interaction_1.png" class="center screenshot"/>
+                <p>To sales user, they are also accessible under:<p>
+                <ol>
+                    <li><i>CRM >> Sales >> Customers</i></li>
+                    <li><i>Sales >> Orders >> Customers</i></li>
+                </ol>
+                <p>Create company type customer record with required tax details</p>
+                <img src="sales/screenshots/sales_user_customer_interaction_2.png" class="center screenshot"/>
+                <p>Set name, email, phone, and other details</p>
+                <img src="sales/screenshots/sales_user_customer_interaction_3.png" class="center screenshot"/>
+                <p>Create multiple point of contacts, invoice and delivery addresses for one customer</p>
+                <img src="sales/screenshots/sales_user_customer_interaction_4.png" class="center screenshot"/>
+                <p>Select fiscal position if applicable to customer</p>
+                <img src="sales/screenshots/sales_user_customer_interaction_5.png" class="center screenshot"/>
+                <h3 id="pricelists">Pricelists</h3>
+                <p>Sales user can create new foreign currency pricelists under <i>Sales >> Products >> Pricelists</i> menu</p>
+                <img src="sales/screenshots/sales_user_pricelist_interaction_01.png" class="center screenshot"/>
+                <p>This pricelist can be further used to draft quote in foreign currency</p>
+                <img src="sales/screenshots/sales_user_pricelist_interaction_02.png" class="center screenshot"/>
+
+                <h3 id="erp-settings">ERP Administrator Settings</h3>
+                <p>Sales administrator configures sales team.</p>
+                <img src="sales/screenshots/configure_sales_team.png" class="center screenshot"/>
+                <p>ERP administrator can set global security lead time under <i>Inventory >> Configuration >> Settings</i> menu, helpful in scheduling deliveries.</p>
+                <img src="sales/screenshots/sales_user_quotation_interaction_7.png" class="center screenshot"/>
+                <p>ERP administrator sets up alias domain.</p>
+                <img src="sales/screenshots/setup_alias_domain.png" class="center screenshot"/>
+                <p>ERP administrator configures incoming mail server.</p>
+                <img src="sales/screenshots/configure_incoming_mail_server.png" class="center screenshot"/>
+                <p>ERP administrator enables Pro-Forma invoices feature.</p>
+                <img src="sales/screenshots/configuration_interaction_2.png" class="center screenshot"/>
+                <p>The ERP administrator sets the sales order sequence implementation to <i>No gap</i>.</p>
+                <img src="sales/screenshots/erp_admin_sales_order_sequence_interaction_1.png" class="center screenshot"/>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</html>

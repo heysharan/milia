@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="iap.access_client_iap_account_user" model="ir.model.access">
+        <field name="name">iap.account.user</field>
+        <field name="model_id" ref="iap.model_iap_account"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_write">1</field>
+    </record>
+
+    <record id="l10n_in_withholding.access_l10n_in_section_alert_account_readonly" model="ir.model.access">
+        <field name="name">l10n_in.section.alert.account.readonly</field>
+        <field name="model_id" ref="l10n_in_withholding.model_l10n_in_section_alert"/>
+        <field name="group_id" ref=""/>
+    </record>
+
+    <record id="account_accountant.access_account_fiscal_year_readonly" model="ir.model.access">
+        <field name="name">account.fiscal.year.user</field>
+        <field name="model_id" ref="account_accountant.model_account_fiscal_year"/>
+        <field name="group_id" ref=""/>
+    </record>
+</odoo>

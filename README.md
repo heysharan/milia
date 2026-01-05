@@ -1,7 +1,5 @@
 # **MIL INDUSTRIES & AEROSPACE LIMITED**
-## **ERP Implementation – Odoo 18.0**
-
----
+## ERP Implementation – Odoo 18.0
 
 ## **Overview**
 
@@ -12,7 +10,6 @@ This project will be executed in two primary phases:
 
 The approach emphasizes documentation-first development, stakeholder alignment, and test-driven customization to ensure a stable, scalable, and maintainable ERP implementation using **Odoo 18.0**.
 
----
 
 ## **1. Requirements & Design Phase**
 
@@ -41,7 +38,6 @@ The Requirements & Design phase focuses on comprehensive **requirements gatherin
 
 The Requirements & Design phase concludes only after **formal review and approval** from all relevant stakeholders, ensuring complete alignment before development begins.
 
----
 
 ## **2. Implementation & Testing Phase**
 

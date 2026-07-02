@@ -5,4 +5,5 @@
         'views/mrp_bom_views.xml',
         'views/product_template_views.xml',
     ],
+    'license': 'LGPL-3'
 }

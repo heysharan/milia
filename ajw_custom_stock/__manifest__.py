@@ -6,6 +6,8 @@
 
     'version': '18.0',
 
-    'depends': ['base',]
+    'depends': ['base',],
+
+    'license': 'LGPL-3'
 }
 

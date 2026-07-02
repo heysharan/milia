@@ -37,7 +37,8 @@ Long description of module's purpose
             'ajw_custom_documents/static/src/views/search/documents_control_panel.xml',
 
         ],
-                }
+                },
+    'license': 'LGPL-3'            
 
 }
 

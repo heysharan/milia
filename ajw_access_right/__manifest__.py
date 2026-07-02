@@ -14,6 +14,7 @@
     'data': [
         'security/ir.model.access.xml',
     ],
+    'license': 'LGPL-3'
 
 }
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ajw_wo_qty.MrpDisplayPatch"
+       t-inherit="mrp_workorder.MrpDisplayRecord"
+       t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_finished_product')]" position="replace">
+            <div class="o_finished_product mt-auto mb-0 d-flex flex-column mw-100">
+                <!-- Product name (original) -->
+                <div class="d-flex">
+                    <span class="text-truncate me-1">
+                        <t t-esc="record.product_id[1]"/> -
+                    </span>
+                    <span class="text-nowrap">
+                        <t t-esc="quantityToProduce"/>
+                        <span class="ms-1">
+                            <t t-if="displayUOM" t-esc="uom"/>
+                            <t t-else="">Unit<t t-if="quantityToProduce != 1">s</t></t>
+                        </span>
+                    </span>
+                </div>
+                <!-- WO Progress below product name -->
+                <div class="mt-1">
+                    <span class="text-success fw-bold">
+                        <t t-esc="props.record.data.wo_qty_done || 0"/>
+                    </span>
+                    <span class="text-muted"> done / </span>
+                    <span class="text-warning fw-bold">
+                        <t t-esc="props.record.data.wo_qty_remaining || 0"/>
+                    </span>
+                    <span class="text-muted"> remaining / </span>
+                    <span class="fw-bold">
+                        <t t-esc="props.record.data.qty_production || 0"/>
+                    </span>
+                    <span class="text-muted ms-1">
+                        <t t-if="displayUOM" t-esc="uom"/>
+                    </span>
+                    <span class="text-muted"> total</span>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>

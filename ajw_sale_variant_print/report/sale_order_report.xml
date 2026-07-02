@@ -1,0 +1,90 @@
+<odoo>
+
+  <!-- 1: PDF - Hide attributes -->
+  <template id="report_sale_order_line_inherit_mil"
+            inherit_id="sale.report_saleorder_document">
+    <xpath expr="//td[@name='td_name']" position="replace">
+      <td name="td_name">
+        <span t-out="line.get_sale_order_line_multiline_description_sale()"/>
+      </td>
+    </xpath>
+  </template>
+
+  <!-- 2: PDF - Quantity summary left of tax totals -->
+  <template id="report_sale_order_qty_summary_mil"
+            inherit_id="sale.report_saleorder_document">
+    <xpath expr="//div[@name='so_total_summary']/div[@id='total']" position="replace">
+      <div id="total" class="row mt-n3" name="total">
+        <div t-attf-class="#{'col-5' if report_type != 'html' else 'col-sm-5 col-md-5'} mt-auto pb-2">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th colspan="2" class="text-muted">
+                  <small>Total Quantities</small>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="doc._get_quantity_by_uom()" t-as="entry">
+                <tr>
+                  <td><strong t-out="entry[0]"/></td>
+                  <td class="text-end"><strong t-out="'%g' % entry[1]"/></td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+        <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ms-auto">
+          <table class="o_total_table table table-borderless">
+            <t t-call="sale.document_tax_totals">
+              <t t-set="tax_totals" t-value="doc.tax_totals"/>
+              <t t-set="currency" t-value="doc.currency_id"/>
+            </t>
+          </table>
+        </div>
+      </div>
+    </xpath>
+  </template>
+
+  <!-- 3: Portal - Hide attributes -->
+  <template id="portal_sale_order_line_inherit_mil"
+            inherit_id="sale.sale_order_portal_content">
+    <xpath expr="//td[@id='product_name']/span[@t-field='line.name']" position="replace">
+      <span t-out="line.get_sale_order_line_multiline_description_sale()"/>
+    </xpath>
+  </template>
+
+  <!-- 4: Portal - Quantity summary left of tax totals -->
+  <template id="portal_sale_order_qty_summary_mil"
+            inherit_id="sale.sale_order_portal_content">
+    <xpath expr="//div[@id='total'][@name='total']" position="replace">
+      <div id="total" name="total" style="page-break-inside: avoid;">
+        <div class="row">
+          <div class="col-xs-5 col-md-4 mt-auto pb-2">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th colspan="2" class="text-muted">
+                    <small>Total Quantities</small>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <t t-foreach="sale_order._get_quantity_by_uom()" t-as="entry">
+                  <tr>
+                    <td><strong t-out="entry[0]"/></td>
+                    <td class="text-end"><strong t-out="'%g' % entry[1]"/></td>
+                  </tr>
+                </t>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-xs-7 col-md-5 ms-auto">
+            <t t-call="sale.sale_order_portal_content_totals_table"/>
+          </div>
+        </div>
+      </div>
+    </xpath>
+  </template>
+
+</odoo>

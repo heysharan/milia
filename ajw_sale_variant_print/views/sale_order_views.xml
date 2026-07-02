@@ -1,0 +1,35 @@
+<odoo>
+
+  <!-- Hide from Customer column -->
+  <record id="view_order_form_inherit_mil" model="ir.ui.view">
+    <field name="name">sale.order.form.inherit.mil</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_line']/list//field[@name='product_id']" position="after">
+        <field name="hidden_attribute_ids"
+               widget="many2many_tags"
+               optional="show"
+               string="Hide from Customer"
+               options="{'no_create': True}"
+               domain="[('id', 'in', product_attribute_ids)]"/>
+      </xpath>
+    </field>
+  </record>
+
+
+  <!-- Quantity Summary below order lines -->
+  <record id="view_order_form_inherit_mil_qty" model="ir.ui.view">
+    <field name="name">sale.order.form.inherit.mil.qty</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_line']" position="after">
+        <div class="d-flex justify-content-end align-items-center mt-2 mb-3 pe-2">
+          <strong class="me-3 text-muted">Total Quantities:</strong>
+          <field name="quantity_summary" readonly="1" class="fw-bold"/>
+        </div>
+      </xpath>
+    </field>
+  </record>
+</odoo>
